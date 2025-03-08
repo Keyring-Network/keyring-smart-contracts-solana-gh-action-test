@@ -1,0 +1,1 @@
+# keyring-smart-contracts-solana-gh-action-test
