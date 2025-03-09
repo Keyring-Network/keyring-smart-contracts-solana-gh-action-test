@@ -1,9 +1,9 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { HelloWorldExtended } from "../../target/types/hello_world_extended";
+import { assert } from "chai";
 
 import { getHello } from "../utils/utils";
-import { assert } from "chai";
 
 describe("HelloWorldExtended", () => {
     const provider = anchor.AnchorProvider.env();
