@@ -5,12 +5,12 @@ seeds = false
 skip-lint = false
 
 [programs.devnet]
-hello-world = "36PZyf6LkXskmMPritchVQc4YF2B21w6geGTwp2Yk88M"
-hello-world-extended = "EAMLr7xgt3SLpuybeGzU46AcaPXyZgvSGQ7oHaZR24MF"
+hello-world = "CFcEae71dUQ8sbhu7U7h4gJSAuqGUiQ3xSqDNLCk44J"
+hello-world-extended = "GupvfozWTiXJ27WQYK1L9KwWCq6bSbDy4DxqgdKurGkN"
 
 [programs.localnet]
-hello-world = "36PZyf6LkXskmMPritchVQc4YF2B21w6geGTwp2Yk88M"
-hello-world-extended = "EAMLr7xgt3SLpuybeGzU46AcaPXyZgvSGQ7oHaZR24MF"
+hello-world = "CFcEae71dUQ8sbhu7U7h4gJSAuqGUiQ3xSqDNLCk44J"
+hello-world-extended = "GupvfozWTiXJ27WQYK1L9KwWCq6bSbDy4DxqgdKurGkN"
 
 [registry]
 url = "https://api.apr.dev"

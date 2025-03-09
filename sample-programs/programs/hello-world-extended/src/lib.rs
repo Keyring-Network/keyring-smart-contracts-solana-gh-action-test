@@ -4,7 +4,7 @@ pub mod constants;
 
 pub use constants::*;
 
-declare_id!("EAMLr7xgt3SLpuybeGzU46AcaPXyZgvSGQ7oHaZR24MF");
+declare_id!("GupvfozWTiXJ27WQYK1L9KwWCq6bSbDy4DxqgdKurGkN");
 
 #[program]
 pub mod hello_world_extended {
