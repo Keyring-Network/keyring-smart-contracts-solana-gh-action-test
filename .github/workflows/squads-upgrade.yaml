@@ -2,6 +2,34 @@ name: Squads Program Upgrade (Devnet)
 
 on:
   workflow_dispatch:
+    inputs:
+      network-url:
+        description: "Solana network URL"
+        required: true
+        default: "https://api.devnet.solana.com"
+      multisig-pda:
+        description: "Multisig PDA address"
+        required: true
+      multisig-vault-index:
+        description: "The multisig vault index"
+        required: true
+        default: "0"
+      program-id:
+        description: "Program ID"
+        required: true
+      buffer:
+        description: "Buffer address"
+        required: true
+      spill-address:
+        description: "Spill address"
+        required: true
+      name:
+        description: "Upgrade name"
+        required: false
+        default: "Devnet Upgrade Test"
+      executable-data:
+        description: "Executable data address"
+        required: true
 
 jobs:
   upgrade:
@@ -14,12 +42,12 @@ jobs:
       - name: Run Squads V4 program upgrade action
         uses: Squads-Protocol/squads-v4-program-upgrade@beta
         with:
-          network-url: "https://api.devnet.solana.com"
-          multisig-pda: "7q23jbHXV7zURNJkx6ybq7SCcaFMdYG5JWZbD5QDTbNf"
-          multisig-vault-index: "0"
-          program-id: "CFcEae71dUQ8sbhu7U7h4gJSAuqGUiQ3xSqDNLCk44J"
-          buffer: "B91pUKNcx5AHrfiNDbSQ95Vbp3mAS7ooz8QGqCPMp5qT"
-          spill-address: "7xBuZLi5B9V55L3Q9AWYHc9iKFZYjZhxhY6YLnrZ5Vy3"
-          name: "Devnet Upgrade Test"
-          executable-data: "3eAi3uw9oUEfkhRHg9NK8kB1Fu5guVs2boirMFCmVV6P"
+          network-url: ${{ inputs.network-url }}
+          multisig-pda: ${{ inputs.multisig-pda }}
+          multisig-vault-index: ${{ inputs.multisig-vault-index }}
+          program-id: ${{ inputs.program-id }}
+          buffer: ${{ inputs.buffer }}
+          spill-address: ${{ inputs.spill-address }}
+          name: ${{ inputs.name }}
+          executable-data: ${{ inputs.executable-data }}
           keypair: ${{ secrets.USER_KEYPAIR }}
