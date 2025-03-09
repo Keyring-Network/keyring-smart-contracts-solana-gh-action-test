@@ -1,15 +1,58 @@
 use anchor_lang::prelude::*;
 
-declare_id!("2jSp5Yi6LjGN55tN1kdVKDkLJbo8moCHWkqhRekdJ4er");
+pub mod constants;
+
+pub use constants::*;
+
+declare_id!("EAMLr7xgt3SLpuybeGzU46AcaPXyZgvSGQ7oHaZR24MF");
 
 #[program]
 pub mod hello_world_extended {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+        let hello_account = &mut ctx.accounts.hello_account;
+        let hello_world_message = "hello world";
+
+        hello_account.message = hello_world_message.to_string();
+
+        msg!("Message stored in PDA: {}", hello_account.message);
+
+        Ok(())
+    }
+
+    pub fn initialize2(ctx: Context<Initialize>, user_name: String) -> Result<()> {
+        let hello_account = &mut ctx.accounts.hello_account;
+        let hello_world_message = "hello world from ";
+
+        hello_account.message = hello_world_message.to_string() + &user_name;
+
+        msg!("Message stored in PDA: {}", hello_account.message);
+
         Ok(())
     }
 }
 
 #[derive(Accounts)]
-pub struct Initialize {}
+pub struct Initialize<'info> {
+    #[account(mut)]
+    pub user: Signer<'info>,
+
+    #[account(
+        init_if_needed,
+        payer = user,
+        space = general::ANCHOR_DISCRIMINATOR_SIZE + Hello::INIT_SPACE,
+        seeds = [seeds::HELLO, user.key().as_ref()],
+        bump
+    )]
+    pub hello_account: Account<'info, Hello>,
+
+    pub system_program: Program<'info, System>,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct Hello {
+    #[max_len(50)]
+    pub message: String,
+}

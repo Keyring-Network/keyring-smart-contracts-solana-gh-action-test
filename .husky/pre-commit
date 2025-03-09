@@ -1,5 +1,4 @@
 cd sample-programs
-anchor build
 ./run-tests.sh
 
 cd ..

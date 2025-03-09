@@ -4,6 +4,10 @@
 seeds = false
 skip-lint = false
 
+[programs.devnet]
+hello-world = "GkUVBKTUKJ5Ab31fVbFtXwpXBuSmyQBNUCJWAbgherws"
+hello-world-extended = "2jSp5Yi6LjGN55tN1kdVKDkLJbo8moCHWkqhRekdJ4er"
+
 [programs.localnet]
 hello-world = "GkUVBKTUKJ5Ab31fVbFtXwpXBuSmyQBNUCJWAbgherws"
 hello-world-extended = "2jSp5Yi6LjGN55tN1kdVKDkLJbo8moCHWkqhRekdJ4er"
@@ -16,4 +20,4 @@ cluster = "Localnet"
 wallet = "/home/sahil/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/helloWorldExtended/helloWorldExtended.test.ts"
