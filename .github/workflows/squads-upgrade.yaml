@@ -6,7 +6,6 @@ on:
 jobs:
   upgrade:
     runs-on: ubuntu-latest
-    environment: mainnet
 
     steps:
       - name: Checkout repo
