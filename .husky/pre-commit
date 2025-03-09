@@ -1,5 +1,2 @@
 cd sample-programs
 ./run-tests.sh
-
-cd ..
-git add .
