@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Squads V4 program upgrade action
-        uses: Squads-Protocol/squads-v4-program-upgrade@beta
+        uses: Squads-Protocol/squads-v4-program-upgrade
         with:
           network-url: "https://api.devnet.solana.com"
           multisig-pda: "7q23jbHXV7zURNJkx6ybq7SCcaFMdYG5JWZbD5QDTbNf"
