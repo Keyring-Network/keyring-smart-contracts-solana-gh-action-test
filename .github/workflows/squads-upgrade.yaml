@@ -62,7 +62,7 @@ jobs:
           BUFFER: ${{ inputs.buffer }}
           SPILL_ADDRESS: ${{ inputs.spill-address }}
           NAME: ${{ inputs.name }}
-          KEYPAIR: ${{ inputs.keypair }}
+          KEYPAIR: ${{ secrets.USER_KEYPAIR }}
           EXECUTABLE_DATA: ${{ inputs.executable-data }}
           IDL_BUFFER: ${{ inputs.idl-buffer }}
         run: npx tsx src/main.ts
