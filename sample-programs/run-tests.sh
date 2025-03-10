@@ -10,6 +10,6 @@ echo -e "\n"
 
 echo "Testing..."
 
-anchor test tests/**/*.test.ts --skip-build
+anchor test --skip-build
 
 echo "Finished testing"
