@@ -47,8 +47,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Setup Yarn
-        uses: threeal/setup-yarn-action@v2.0.0
+      - name: Install latest Yarn
+        run: corepack prepare yarn@stable --activate
       
       - name: Install dependencies
         run: yarn install
