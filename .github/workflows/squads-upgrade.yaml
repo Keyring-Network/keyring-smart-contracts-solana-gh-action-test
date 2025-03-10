@@ -30,6 +30,9 @@ on:
       executable-data:
         description: "Executable data address"
         required: true
+      idl-buffer:
+        description: "The new idl buffer"
+        required: false
 
 jobs:
   upgrade:
@@ -39,16 +42,27 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run Squads V4 program upgrade action
-        uses: Squads-Protocol/squads-v4-program-upgrade@main
+      - name: Setup node.js
+        uses: actions/setup-node@v4
         with:
-          network-url: ${{ inputs.network-url }}
-          multisig-pda: ${{ inputs.multisig-pda }}
-          multisig-vault-index: ${{ inputs.multisig-vault-index }}
-          program-id: ${{ inputs.program-id }}
-          buffer: ${{ inputs.buffer }}
-          spill-address: ${{ inputs.spill-address }}
-          name: ${{ inputs.name }}
-          executable-data: ${{ inputs.executable-data }}
-          keypair: ${{ secrets.USER_KEYPAIR }}
-          idl-buffer: ""
+          node-version: 20
+
+      - name: Setup Yarn
+        uses: threeal/setup-yarn-action@v2.0.0
+      
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run program upgrade script
+        env:
+          NETWORK_URL: ${{ inputs.network-url }}
+          MULTISIG_PDA: ${{ inputs.multisig-pda }}
+          MULTISIG_VAULT_INDEX: ${{ inputs.multisig-vault-index }}
+          PROGRAM_ID: ${{ inputs.program-id }}
+          BUFFER: ${{ inputs.buffer }}
+          SPILL_ADDRESS: ${{ inputs.spill-address }}
+          NAME: ${{ inputs.name }}
+          KEYPAIR: ${{ inputs.keypair }}
+          EXECUTABLE_DATA: ${{ inputs.executable-data }}
+          IDL_BUFFER: ${{ inputs.idl-buffer }}
+        run: npx tsx src/main.ts
