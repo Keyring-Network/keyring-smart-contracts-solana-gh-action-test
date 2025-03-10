@@ -29,4 +29,4 @@ Buffer: B91pUKNcx5AHrfiNDbSQ95Vbp3mAS7ooz8QGqCPMp5qT
 
 Transferred buffer authority to: 7q23jbHXV7zURNJkx6ybq7SCcaFMdYG5JWZbD5QDTbNf
 
-Successfully created proposal for upgrade here: https://explorer.solana.com/tx/5YCXj61iNuKavjKuRDEVBxFHWH5ECkHEwDdQC4ydHjrJmjt7H1xxs9skVWAW7Jj8BzR8nCot7HEcRRexetqDPqfy?cluster=devnet
+Successfully created proposal for upgrade with transaction signature 43bD127fDivDBwyfR4Bd5K2czcA24KbaDhYj6CnxrAg9KCidADsC3E5Usdbmr8rqXDMk6Y9vrcVPTH6Ka51FquNM, and transaction index 2.
